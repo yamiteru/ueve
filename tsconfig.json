@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
 		"target": "ESNext",
-		"module": "ESNext",
+		"module": "CommonJS",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
-		"strict": true
-	},
-	"include": [
+		"strict": false
+  },
+  "include": [
 		"src/**/*",
 		"tests/**/*"
 	]
