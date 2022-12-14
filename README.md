@@ -1,4 +1,4 @@
-# uEve 
+# μEve
 
 ```bash
 yarn add ueve # npm install ueve
