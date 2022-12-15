@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
 	"author": "Miroslav Vršecký <yamiteru@icloud.com>",
-  "description": "🔥 Hellishly fast, 🤏 tiny (250 bytes), minimalist (6 functions) async event emitter",
+  "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
   "repository": {
     "type": "git",
     "url": "https://github.com/ueve/cynic.git",

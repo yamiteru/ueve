@@ -1,30 +1,61 @@
-import { eve } from "../src";
-import { S, T } from "../src/constants";
+import { T, S } from "../src/private/constants";
+import { eve as eveAsync } from "../src/async";
+import { eve as eveSync } from "../src/sync";
 
 describe("eve", () => {
-	it("should create default event", () => {
-		const click$ = eve();
+	describe("async", () => {
+		it("should create default event", () => {
+			const click$ = eveAsync();
 
-		expect(click$).toBeDefined();
+			expect(click$).toBeDefined();
+		});
+
+		it("should create event with T function", () => {
+			const fn = jest.fn();
+			const click$ = eveAsync<number>(fn);
+
+			expect(click$[T]).toBe(fn);
+		});
+
+		it("should have secret properties", () => {
+			const click$ = eveAsync();
+
+			expect(click$[S]).toBeDefined();
+			expect(click$[T]).toBeDefined();
+		});
+
+		it("should create event with no set", () => {
+			const click$ = eveAsync();
+
+			expect(click$[S]).toBe(null);
+		});
 	});
 
-	it("should create event with T function", () => {
-		const fn = jest.fn();
-		const click$ = eve<number>(fn);
+	describe("sync", () => {
+		it("should create default event", () => {
+			const click$ = eveSync();
 
-		expect(click$[T]).toBe(fn);
-	});
+			expect(click$).toBeDefined();
+		});
 
-	it("should have secret properties", () => {
-		const click$ = eve();
+		it("should create event with T function", () => {
+			const fn = jest.fn();
+			const click$ = eveSync<number>(fn);
 
-		expect(click$[S]).toBeDefined();
-		expect(click$[T]).toBeDefined();
-	});
+			expect(click$[T]).toBe(fn);
+		});
 
-	it("should create event with no set", () => {
-		const click$ = eve();
+		it("should have secret properties", () => {
+			const click$ = eveSync();
 
-		expect(click$[S]).toBe(null);
+			expect(click$[S]).toBeDefined();
+			expect(click$[T]).toBeDefined();
+		});
+
+		it("should create event with no set", () => {
+			const click$ = eveSync();
+
+			expect(click$[S]).toBe(null);
+		});
 	});
 });

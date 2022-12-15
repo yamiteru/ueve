@@ -1,20 +1,40 @@
-import expect from "expect";
-import { eve, has, sub } from "../src";
+import { eve as eveAsync, sub as subAsync, has } from "../src/async";
+import { eve as eveSync, sub as subSync } from "../src/sync";
 
 describe("has", () => {
-	it("should return true if event has subscriber", () => {
-		const fn = jest.fn();
-		const click$ = eve();
+	describe("async", () => {
+		it("should return true if event has subscriber", () => {
+			const fn = jest.fn();
+			const click$ = eveAsync();
 
-		sub(click$, fn);
+			subAsync(click$, fn);
 
-		expect(has(click$, fn)).toBe(true);
+			expect(has(click$, fn)).toBe(true);
+		});
+
+		it("should return false if event does not have subscriber", () => {
+			const fn = jest.fn();
+			const click$ = eveAsync();
+
+			expect(has(click$, fn)).toBe(false);
+		});
 	});
 
-	it("should return false if event does not have subscriber", () => {
-		const fn = jest.fn();
-		const click$ = eve();
+	describe("sync", () => {
+		it("should return true if event has subscriber", () => {
+			const fn = jest.fn();
+			const click$ = eveSync();
 
-		expect(has(click$, fn)).toBe(false);
+			subSync(click$, fn);
+
+			expect(has(click$, fn)).toBe(true);
+		});
+
+		it("should return false if event does not have subscriber", () => {
+			const fn = jest.fn();
+			const click$ = eveSync();
+
+			expect(has(click$, fn)).toBe(false);
+		});
 	});
 });

@@ -1,20 +1,39 @@
-import expect from "expect";
-import { clr, eve, sub } from "../src";
-import { S } from "../src/constants";
+import { S } from "../src/private/constants";
+import { eve as eveAsync, sub as subAsync, clr } from "../src/async";
+import { eve as eveSync, sub as subSync } from "../src/sync";
 
 describe("clr", () => {
-	it("should clear event", () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
-		const fn3 = jest.fn();
-		const click$ = eve();
+	describe("async", () => {
+		it("should clear event", () => {
+			const fn1 = jest.fn();
+			const fn2 = jest.fn();
+			const fn3 = jest.fn();
+			const click$ = eveAsync();
 
-		sub(click$, fn1);
-		sub(click$, fn2);
-		sub(click$, fn3);
-		
-		clr(click$);
+			subAsync(click$, fn1);
+			subAsync(click$, fn2);
+			subAsync(click$, fn3);
+			
+			clr(click$);
 
-		expect(click$[S]?.size).toBe(0);
+			expect(click$[S]?.size).toBe(0);
+		});
+	});
+
+	describe("sync", () => {
+		it("should clear event", () => {
+			const fn1 = jest.fn();
+			const fn2 = jest.fn();
+			const fn3 = jest.fn();
+			const click$ = eveSync();
+
+			subSync(click$, fn1);
+			subSync(click$, fn2);
+			subSync(click$, fn3);
+			
+			clr(click$);
+
+			expect(click$[S]?.size).toBe(0);
+		});
 	});
 });

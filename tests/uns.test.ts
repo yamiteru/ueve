@@ -1,25 +1,49 @@
-import expect from "expect";
-import { eve, sub, uns } from "../src";
-import { S } from "../src/constants";
+import { S } from "../src/private/constants";
+import { eve as eveAsync, sub as subAsync, uns } from "../src/async";
+import { eve as eveSync, sub as subSync } from "../src/sync";
 
 describe("uns", () => {
-	it("should unsubscibe using result of subscription", () => {
-		const fn = jest.fn();
-		const click$ = eve();	
-		const unsub = sub(click$, fn);
+	describe("async", () => {
+		it("should unsubscibe using result of subscription", () => {
+			const fn = jest.fn();
+			const click$ = eveAsync();	
+			const unsub = subAsync(click$, fn);
 
-		unsub();
+			unsub();
 
-		expect(click$[S]?.size).toBe(0);
+			expect(click$[S]?.size).toBe(0);
+		});
+
+		it("should unsubscibe by passing function reference", () => {
+			const fn = jest.fn();
+			const click$ = eveAsync();	
+			
+			subAsync(click$, fn);
+			uns(click$, fn);
+
+			expect(click$[S]?.size).toBe(0);
+		});
 	});
 
-	it("should unsubscibe by passing function reference", () => {
-		const fn = jest.fn();
-		const click$ = eve();	
-		
-		sub(click$, fn);
-		uns(click$, fn);
+	describe("sync", () => {
+		it("should unsubscibe using result of subscription", () => {
+			const fn = jest.fn();
+			const click$ = eveSync();	
+			const unsub = subSync(click$, fn);
 
-		expect(click$[S]?.size).toBe(0);
+			unsub();
+
+			expect(click$[S]?.size).toBe(0);
+		});
+
+		it("should unsubscibe by passing function reference", () => {
+			const fn = jest.fn();
+			const click$ = eveSync();	
+			
+			subSync(click$, fn);
+			uns(click$, fn);
+
+			expect(click$[S]?.size).toBe(0);
+		});
 	});
 });
