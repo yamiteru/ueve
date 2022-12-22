@@ -13,7 +13,9 @@ module.exports = {
     sourceType: "module",
     ecmaVersion: 2022,
   },
-  rules: {},
+  rules: {
+		"@typescript-eslint/no-explicit-any": "off"
+	},
   env: {
     browser: true,
     es2022: true,

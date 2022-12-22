@@ -1,11 +1,11 @@
 import { eve, pub, sub } from "../src/sync";
 
-const doubleNumber$ = eve<number>((v) => v*2);
+const doubleNumber$ = eve<number>((v) => v * 2);
 
 sub(doubleNumber$, console.log);
 
-for(let i = 0; i < 5; ++i) {
-	pub(doubleNumber$, i);
+for (let i = 0; i < 5; ++i) {
+  pub(doubleNumber$, i);
 }
 
 // 0

@@ -2,8 +2,8 @@ import { S } from "./constants";
 import { EventAny, InferSubscriber } from "./types";
 
 export const uns = <
-	Event extends EventAny,
-	Subscriber extends InferSubscriber<Event> 
+  Event extends EventAny,
+  Subscriber extends InferSubscriber<Event>,
 >(
   event: Event,
   subscriber: Subscriber,
@@ -12,8 +12,8 @@ export const uns = <
 };
 
 export const sub = <
-	Event extends EventAny,
-	Subscriber extends InferSubscriber<Event>
+  Event extends EventAny,
+  Subscriber extends InferSubscriber<Event>,
 >(
   event: Event,
   subscriber: Subscriber,
@@ -25,17 +25,15 @@ export const sub = <
 };
 
 export const has = <
-	Event extends EventAny,
-	Subscriber extends InferSubscriber<Event>
+  Event extends EventAny,
+  Subscriber extends InferSubscriber<Event>,
 >(
-	event: Event,
+  event: Event,
   subscriber: Subscriber,
 ) => {
-	return event[S]?.has(subscriber) || false;
+  return event[S]?.has(subscriber) || false;
 };
 
-export const clr = <
-	Event extends EventAny,
->(event: Event) => {
+export const clr = <Event extends EventAny>(event: Event) => {
   event[S]?.clear();
 };

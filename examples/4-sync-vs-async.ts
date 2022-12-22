@@ -1,12 +1,12 @@
 import { eve as eveSync, pub as pubSync, sub } from "../src/sync";
 import { eve as eveAsync, pub as pubAsync } from "../src/async";
 
-const doubleSync = eveSync<number>((v) => v*2);
+const doubleSync = eveSync<number>((v) => v * 2);
 
 sub(doubleSync, (v) => console.log(v));
 
-for(let i = 0; i < 5; ++i) {
-	pubSync(doubleSync, i);
+for (let i = 0; i < 5; ++i) {
+  pubSync(doubleSync, i);
 }
 
 // 0
@@ -16,17 +16,18 @@ for(let i = 0; i < 5; ++i) {
 // 8
 
 const doubleAsync = eveAsync<number>(
-	// it multiplies input after random 
-	// number of ms in the range of <0, 100>
-	(v) => new Promise((resolve) => setTimeout(() => 
-		resolve(v*2), Math.random() * 100)
-	)
+  // it multiplies input after random
+  // number of ms in the range of <0, 100>
+  (v) =>
+    new Promise((resolve) =>
+      setTimeout(() => resolve(v * 2), Math.random() * 100),
+    ),
 );
 
 sub(doubleAsync, async (v) => console.log(v));
 
-for(let i = 0; i < 5; ++i) {
-	pubAsync(doubleAsync, i);
+for (let i = 0; i < 5; ++i) {
+  pubAsync(doubleAsync, i);
 }
 
 // 8

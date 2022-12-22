@@ -11,6 +11,7 @@
 		"src/**/*",
 		"tests/**/*",
 		"scripts/**/*",
-		"examples/**/*"
+		"examples/**/*",
+		"benchmarks/**/*"
 	]
 }

@@ -5,17 +5,13 @@ import { pass } from "./utils";
 export * from "./types";
 export * from "./functions";
 
-export const eve = <I, O = I>(
-  transform?: Transform<I, Either<undefined, O>>,
-) => ({
-  [S]: null,
-  [T]: transform || (pass as Transform<I, Either<undefined, O>>),
-}) as unknown as EventSync<I, O>;
+export const eve = <I, O = I>(transform?: Transform<I, Either<undefined, O>>) =>
+  ({
+    [S]: null,
+    [T]: transform || (pass as Transform<I, Either<undefined, O>>),
+  } as unknown as EventSync<I, O>);
 
-export const pub = <I, O>(
-	event: EventSync<I, O>, 
-	value: I
-) => {
+export const pub = <I, O>(event: EventSync<I, O>, value: I) => {
   const listeners = event[S];
 
   if (listeners) {

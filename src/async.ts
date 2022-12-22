@@ -7,15 +7,13 @@ export * from "./functions";
 
 export const eve = <I, O = I>(
   transform?: Transform<I, PromiseLike<Either<undefined, O>>>,
-) => ({
-  [S]: null,
-  [T]: transform || (pass as Transform<I, PromiseLike<Either<undefined, O>>>),
-}) as unknown as EventAsync<I, O>;
+) =>
+  ({
+    [S]: null,
+    [T]: transform || (pass as Transform<I, PromiseLike<Either<undefined, O>>>),
+  } as unknown as EventAsync<I, O>);
 
-export const pub = async <I, O>(
-	event: EventAsync<I, O>, 
-	value: I
-) => {
+export const pub = async <I, O>(event: EventAsync<I, O>, value: I) => {
   const listeners = event[S];
 
   if (listeners) {

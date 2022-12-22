@@ -4,11 +4,11 @@ import { clr, eve, pub, sub } from "../src/sync";
 const counter = eve<number>();
 
 // subscribe to the event
-sub(counter, (v) => console.log(`COUNT: ${v}`))
+sub(counter, (v) => console.log(`COUNT: ${v}`));
 
 // publish values to the event
-for(let i = 0; i < 10; ++i) {
-	pub(counter, i);
+for (let i = 0; i < 10; ++i) {
+  pub(counter, i);
 }
 
 // 0

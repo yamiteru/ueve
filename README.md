@@ -1,13 +1,6 @@
-# μEve
-
 ```bash
 yarn add ueve # npm install ueve
 ```
-
-You can find examples of usage in the `examples` folder.
-You can find benchmark results in the `benchmark` folder. 
-
-This library has 100% test coverage. 
 
 ## Concept
 
@@ -27,7 +20,7 @@ This one is obvious. It's what we usually think of when someone says performance
 
 μEve is just a small wrapper around `Set`. Thanks to that the performance is very close to the native performance of `Set` and its methods.
 
-You can't really go any faster.
+You can't really go any faster (see [benchmark results](./benchmark.md)).
 
 #### 2. Library size
 
@@ -41,6 +34,15 @@ What people often overlook is the size of a library. There are two major things 
 Instead we create a simple object with private properties (with the help of symbols). The object is then passed into all of the methods as the first argument. This makes the methods importable and tree-shakeable.
 
 All of this means that you download and parse only the code that ends up being executed.
+
+___
+
+## Examples
+
+1. [Simple counter](./examples/1-simple-counter.ts)
+2. [Input transformation](./examples/2-input-transformation.ts)
+3. [Input filtering](./examples/3-input-filtering.ts)
+4. [Sync vs Async](./examples/4-sync-vs-async.ts)
 
 ___
 
