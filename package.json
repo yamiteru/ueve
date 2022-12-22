@@ -47,7 +47,6 @@
     "@typescript-eslint/parser": "5.47.0",
     "auto-changelog": "2.4.0",
     "esbuild": "0.16.10",
-    "esbuild-plugin-filesize": "^0.4.0",
     "esbuild-plugin-swc": "1.0.1",
     "eslint": "8.30.0",
     "eslint-config-prettier": "8.5.0",
