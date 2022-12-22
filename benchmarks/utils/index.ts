@@ -23,7 +23,7 @@ type InferFunctions<T extends Either<undefined, boolean>> = {
   [fn: string]: T extends true ? () => Promise<void> : () => void;
 };
 
-const DEV = true;
+const DEV = false;
 
 const OPTIONS: Options = {
   async: false,
@@ -97,13 +97,13 @@ export const suite = <T extends Partial<Options>>(options?: T) => {
       "benchmark.md",
       `# ${name}` +
         "\n\n" +
-        "Name | Op/s" +
+        "Name | Op/s  " +
         "\n" +
-        "---|---|---" +
+        "---|---|---  " +
         "\n" +
         results
           .sort((a, b) => b.op - a.op)
-          .map(({ name, op }) => `${name} | ${op.toLocaleString("en")}`)
+          .map(({ name, op }) => `${name} | ${op.toLocaleString("en")}  `)
           .join("\n") +
         "\n\n",
     );
