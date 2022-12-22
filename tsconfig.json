@@ -4,10 +4,13 @@
 		"module": "CommonJS",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
-		"strict": false
+		"noImplicitAny": false,
+		"strict": true 
   },
   "include": [
 		"src/**/*",
-		"tests/**/*"
+		"tests/**/*",
+		"scripts/**/*",
+		"examples/**/*"
 	]
 }

@@ -17,20 +17,6 @@ describe("pub", () => {
 			expect(fn2).toHaveBeenCalledTimes(1);
 		});
 
-		it("should not publish invalid value to any subscriber", async () => {
-			const fn1 = jest.fn();
-			const fn2 = jest.fn();
-			const click$ = eveAsync<number>();
-
-			subAsync(click$, fn1);
-			subAsync(click$, fn2);
-
-			await pubAsync(click$, undefined);
-
-			expect(fn1).toHaveBeenCalledTimes(0);
-			expect(fn2).toHaveBeenCalledTimes(0);
-		});
-		
 		it("should publish transformed value to all subscribers", async () => {
 			const fn1 = jest.fn();
 			const fn2 = jest.fn();
@@ -76,21 +62,7 @@ describe("pub", () => {
 			expect(fn1).toHaveBeenCalledTimes(1);
 			expect(fn2).toHaveBeenCalledTimes(1);
 		});
-
-		it("should not publish invalid value to any subscriber", () => {
-			const fn1 = jest.fn();
-			const fn2 = jest.fn();
-			const click$ = eveSync<number>();
-
-			subSync(click$, fn1);
-			subSync(click$, fn2);
-
-			pubSync(click$, undefined);
-
-			expect(fn1).toHaveBeenCalledTimes(0);
-			expect(fn2).toHaveBeenCalledTimes(0);
-		});
-		
+	
 		it("should publish transformed value to all subscribers", () => {
 			const fn1 = jest.fn();
 			const fn2 = jest.fn();

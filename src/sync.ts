@@ -1,14 +1,15 @@
-import { EventSync, Transform } from "../shared";
-import { S, T } from "../private/constants";
-import { pass } from "../private/utils";
+import { Either, EventSync, Transform } from "./types";
+import { S, T } from "./constants";
+import { pass } from "./utils";
 
-export * from "../shared/functions";
+export * from "./types";
+export * from "./functions";
 
 export const eve = <I, O = I>(
-  transform?: Transform<I, O>,
+  transform?: Transform<I, Either<undefined, O>>,
 ) => ({
   [S]: null,
-  [T]: transform || (pass as Transform<I, O>),
+  [T]: transform || (pass as Transform<I, Either<undefined, O>>),
 }) as unknown as EventSync<I, O>;
 
 export const pub = <I, O>(

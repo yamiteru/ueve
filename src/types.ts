@@ -1,4 +1,4 @@
-import { S, T } from "../private/constants";
+import { S, T } from "./constants";
 
 export type Either<L, R> = L | R;
 
@@ -38,17 +38,17 @@ export type EventAsync<I, O> = (
 };
 
 export type EventAny<
-	I = unknown, 
-	O = unknown
+	I = any, 
+	O = any 
 > = Either<
 	EventSync<I, O>,
 	EventAsync<I, O>
 >;
 
 export type InferSubscriber<
-	T extends EventAny<unknown, unknown>
-> = T extends EventAsync<unknown, infer O>
+	T extends EventAny<any, any>
+> = T extends EventAsync<any, infer O>
 	? Subscriber<O, true>
-	: T extends EventSync<unknown, infer O>
+	: T extends EventSync<any, infer O>
 		? Subscriber<O, false>
 		: never;

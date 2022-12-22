@@ -2,7 +2,7 @@
   "name": "ueve",
   "version": "1.0.0",
   "license": "MIT",
-	"author": "Miroslav Vršecký <yamiteru@icloud.com>",
+  "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "event",
-		"event-emitter",
+    "event-emitter",
     "reactive",
     "reactive-programming",
     "pub-sub",
@@ -32,7 +32,7 @@
     "check": "pnpm check:lint && pnpm check:format",
     "test:coverage": "jest --collectCoverage",
     "test": "jest",
-    "build": "pnpm spack",
+    "build": "ts-node scripts/build.ts",
     "prepublishOnly": "pnpm test && pnpm build",
     "release": "release-it"
   },
@@ -45,6 +45,8 @@
     "@typescript-eslint/eslint-plugin": "5.46.1",
     "@typescript-eslint/parser": "5.46.1",
     "auto-changelog": "2.4.0",
+    "esbuild": "0.16.7",
+    "esbuild-plugin-swc": "1.0.1",
     "eslint": "8.29.0",
     "eslint-config-prettier": "8.5.0",
     "husky": "8.0.2",
@@ -52,9 +54,10 @@
     "prettier": "2.8.1",
     "release-it": "15.5.1",
     "ts-jest": "29.0.3",
+    "ts-node": "10.9.1",
     "typescript": "4.9.4"
   },
-	"engines": {
+  "engines": {
     "node": ">=16.0.0"
   }
 }

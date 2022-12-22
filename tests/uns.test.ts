@@ -1,4 +1,4 @@
-import { S } from "../src/private/constants";
+import { S } from "../src/constants";
 import { eve as eveAsync, sub as subAsync, uns } from "../src/async";
 import { eve as eveSync, sub as subSync } from "../src/sync";
 

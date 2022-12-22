@@ -1,4 +1,4 @@
-import { S } from "../private/constants";
+import { S } from "./constants";
 import { EventAny, InferSubscriber } from "./types";
 
 export const uns = <
