@@ -4,19 +4,14 @@
   "license": "MIT",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
-  "files": [
-    "dist/*.js",
-    "dist/*.map",
-    "dist/*.ts"
-  ],
+  "main": "dist/index.js",
+  "files": ["dist/*.js", "dist/*.map", "dist/*.ts"],
   "exports": {
     "./*": "./dist/*"
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "dist/*"
-      ]
+      "*": ["dist/*"]
     }
   },
   "repository": {
