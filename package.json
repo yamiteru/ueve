@@ -1,12 +1,16 @@
 {
   "name": "ueve",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
-  "files": ["dist/*.js", "dist/*.map", "dist/*.ts"],
+  "files": [
+    "dist/*.js",
+    "dist/*.map",
+    "dist/*.ts"
+  ],
   "exports": {
     ".": "./dist/index.js",
     "./async": "./dist/async.js",
