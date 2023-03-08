@@ -6,15 +6,11 @@
   "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist/*.js",
-    "dist/*.map",
-    "dist/*.ts"
-  ],
+  "files": ["dist/*.js", "dist/*.map", "dist/*.ts"],
   "exports": {
     ".": "./dist/index.js",
-    "./async": "./dist/async.js",
-    "./sync": "./dist/sync.js"
+    "async": "./dist/async.js",
+    "sync": "./dist/sync.js"
   },
   "repository": {
     "type": "git",
