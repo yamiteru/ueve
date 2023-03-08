@@ -1,17 +1,7 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "CommonJS",
-		"moduleResolution": "node",
-		"esModuleInterop": true,
-		"noImplicitAny": false,
-		"strict": true 
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS"
   },
-  "include": [
-		"src/**/*",
-		"tests/**/*",
-		"scripts/**/*",
-		"examples/**/*",
-		"benchmarks/**/*"
-	]
+  "include": ["src/**/*"]
 }
