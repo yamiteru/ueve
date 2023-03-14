@@ -1,7 +1,7 @@
-import { build } from "esbuild";
+import { build, BuildOptions } from "esbuild";
 import { swcPlugin } from "esbuild-plugin-swc";
 
-build({
+const shared = {
   bundle: true,
   entryPoints: ["src/index.ts", "src/async.ts", "src/sync.ts"],
   plugins: [swcPlugin()],
@@ -9,9 +9,21 @@ build({
   minify: true,
   platform: "node",
   sourcemap: "linked",
-  splitting: true,
   treeShaking: true,
   outdir: "dist",
-  format: "esm",
   target: ["esnext", "node18.0.0"],
-});
+} as BuildOptions;
+
+Promise.all([
+  build({
+    ...shared,
+    format: "esm",
+    outExtension: { ".js": ".esm.js" },
+    splitting: true,
+  }),
+  build({
+    ...shared,
+    format: "cjs",
+    outExtension: { ".js": ".cjs.js" },
+  }),
+]);
