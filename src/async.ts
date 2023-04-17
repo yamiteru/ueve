@@ -1,9 +1,9 @@
-import { Either, EventAsync, Transform } from "./types";
-import { S, T } from "./constants";
-import { pass } from "./utils";
+import { S, T } from "./constants.js";
+import { Transform, Either, EventAsync } from "./types.js";
+import { pass } from "./utils.js";
 
-export * from "./types";
-export * from "./functions";
+export * from "./types.js";
+export * from "./functions.js";
 
 export const eve = <I, O = I>(
   transform?: Transform<I, PromiseLike<Either<undefined, O>>>,

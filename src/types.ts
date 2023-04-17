@@ -1,4 +1,4 @@
-import { S, T } from "./constants";
+import { S, T } from "./constants.js";
 
 export type Either<L, R> = L | R;
 

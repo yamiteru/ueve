@@ -1,5 +1,5 @@
-import { S } from "./constants";
-import { EventAny, InferSubscriber } from "./types";
+import { S } from "./constants.js";
+import { EventAny, InferSubscriber } from "./types.js";
 
 export const uns = <
   Event extends EventAny,
