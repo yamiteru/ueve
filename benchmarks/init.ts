@@ -1,5 +1,5 @@
-import { eve, EventSync } from "../src/sync";
-import { syncSuite } from "./utils";
+import { eve, EventSync } from "../src/sync.js";
+import { syncSuite } from "./utils/index.js";
 
 let set: Set<any>;
 let event$: EventSync<any, any>;

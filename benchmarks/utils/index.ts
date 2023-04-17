@@ -1,5 +1,5 @@
 import { appendFile } from "fs/promises";
-import { Either } from "../../src/types";
+import { Either } from "../../src/types.js";
 
 type Result = {
   name: string;
