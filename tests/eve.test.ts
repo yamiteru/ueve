@@ -1,6 +1,7 @@
-import { T, S } from "../src/constants";
-import { eve as eveAsync } from "../src/async";
-import { eve as eveSync } from "../src/sync";
+import { T, S } from "../src/constants.js";
+import { eve as eveAsync } from "../src/async.js";
+import { eve as eveSync } from "../src/sync.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("eve", () => {
   describe("async", () => {
@@ -11,7 +12,7 @@ describe("eve", () => {
     });
 
     it("should create event with T function", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveAsync<number>(fn);
 
       expect(click$[T]).toBe(fn);
@@ -39,7 +40,7 @@ describe("eve", () => {
     });
 
     it("should create event with T function", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveSync<number>(fn);
 
       expect(click$[T]).toBe(fn);
