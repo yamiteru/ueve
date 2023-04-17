@@ -1,4 +1,4 @@
-import { eve, pub, sub } from "../src/sync";
+import { eve, pub, sub } from "../src/sync.js";
 
 const evenNumbers$ = eve<number>(
   // if the value is even we return it

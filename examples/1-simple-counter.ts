@@ -1,4 +1,4 @@
-import { clr, eve, pub, sub } from "../src/sync";
+import { clr, eve, pub, sub } from "../src/sync.js";
 
 // create event emitter
 const counter = eve<number>();

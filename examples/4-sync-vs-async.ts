@@ -1,5 +1,5 @@
-import { eve as eveSync, pub as pubSync, sub } from "../src/sync";
-import { eve as eveAsync, pub as pubAsync } from "../src/async";
+import { eve as eveSync, pub as pubSync, sub } from "../src/sync.js";
+import { eve as eveAsync, pub as pubAsync } from "../src/async.js";
 
 const doubleSync = eveSync<number>((v) => v * 2);
 

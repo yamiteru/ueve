@@ -1,4 +1,4 @@
-import { eve, pub, sub } from "../src/sync";
+import { eve, pub, sub } from "../src/sync.js";
 
 const doubleNumber$ = eve<number>((v) => v * 2);
 
