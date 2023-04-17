@@ -5,23 +5,23 @@
   "license": "MIT",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./sync": {
       "types": "./dist/sync.d.ts",
-      "import": "./dist/sync.esm.js",
-      "require": "./dist/sync.cjs.js"
+      "import": "./dist/sync.mjs",
+      "require": "./dist/sync.cjs"
     },
     "./async": {
       "types": "./dist/async.d.ts",
-      "import": "./dist/async.esm.js",
-      "require": "./dist/async.cjs.js"
+      "import": "./dist/async.mjs",
+      "require": "./dist/async.cjs"
     }
   },
   "files": [
