@@ -1,13 +1,14 @@
-import { S } from "../src/constants";
-import { eve as eveAsync, sub as subAsync, clr } from "../src/async";
-import { eve as eveSync, sub as subSync } from "../src/sync";
+import { S } from "../src/constants.js";
+import { eve as eveAsync, sub as subAsync, clr } from "../src/async.js";
+import { eve as eveSync, sub as subSync } from "../src/sync.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("clr", () => {
   describe("async", () => {
     it("should clear event", () => {
-      const fn1 = jest.fn();
-      const fn2 = jest.fn();
-      const fn3 = jest.fn();
+      const fn1 = vi.fn();
+      const fn2 = vi.fn();
+      const fn3 = vi.fn();
       const click$ = eveAsync();
 
       subAsync(click$, fn1);
@@ -22,9 +23,9 @@ describe("clr", () => {
 
   describe("sync", () => {
     it("should clear event", () => {
-      const fn1 = jest.fn();
-      const fn2 = jest.fn();
-      const fn3 = jest.fn();
+      const fn1 = vi.fn();
+      const fn2 = vi.fn();
+      const fn3 = vi.fn();
       const click$ = eveSync();
 
       subSync(click$, fn1);

@@ -1,11 +1,12 @@
-import { S } from "../src/constants";
-import { eve as eveAsync, sub } from "../src/async";
-import { eve as eveSync } from "../src/sync";
+import { S } from "../src/constants.js";
+import { eve as eveAsync, sub } from "../src/async.js";
+import { eve as eveSync } from "../src/sync.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("sub", () => {
   describe("async", () => {
     it("should add subscriber", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveAsync<number>();
 
       sub(click$, fn);
@@ -15,7 +16,7 @@ describe("sub", () => {
     });
 
     it("should ignore duplicate subscriber", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveAsync<number>();
 
       sub(click$, fn);
@@ -26,9 +27,9 @@ describe("sub", () => {
     });
 
     it("should add multiple different subscibers", () => {
-      const fn1 = jest.fn();
-      const fn2 = jest.fn();
-      const fn3 = jest.fn();
+      const fn1 = vi.fn();
+      const fn2 = vi.fn();
+      const fn3 = vi.fn();
       const click$ = eveAsync<number>();
 
       sub(click$, fn1);
@@ -39,7 +40,7 @@ describe("sub", () => {
     });
 
     it("should return unsubscribe function", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveAsync();
       const unsub = sub(click$, fn);
 
@@ -50,7 +51,7 @@ describe("sub", () => {
 
   describe("sync", () => {
     it("should add subscriber", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveSync<number>();
 
       sub(click$, fn);
@@ -60,7 +61,7 @@ describe("sub", () => {
     });
 
     it("should ignore duplicate subscriber", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveSync<number>();
 
       sub(click$, fn);
@@ -71,9 +72,9 @@ describe("sub", () => {
     });
 
     it("should add multiple different subscibers", () => {
-      const fn1 = jest.fn();
-      const fn2 = jest.fn();
-      const fn3 = jest.fn();
+      const fn1 = vi.fn();
+      const fn2 = vi.fn();
+      const fn3 = vi.fn();
       const click$ = eveSync<number>();
 
       sub(click$, fn1);
@@ -84,7 +85,7 @@ describe("sub", () => {
     });
 
     it("should return unsubscribe function", () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const click$ = eveSync();
       const unsub = sub(click$, fn);
 
