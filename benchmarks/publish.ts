@@ -1,6 +1,6 @@
-import { sub, Subscriber } from "../src";
-import { eve, pub } from "../src/sync";
-import { syncSuite } from "./utils";
+import { sub, Subscriber } from "../src/index.js";
+import { eve, pub } from "../src/sync.js";
+import { syncSuite } from "./utils/index.js";
 
 const set = new Set<Subscriber<number, false>>();
 const event$ = eve<number>();

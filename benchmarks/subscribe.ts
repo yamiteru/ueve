@@ -1,5 +1,5 @@
-import { clr, eve, Lambda, sub } from "../src/sync";
-import { syncSuite } from "./utils";
+import { clr, eve, Lambda, sub } from "../src/sync.js";
+import { syncSuite } from "./utils/index.js";
 
 const set = new Set<Lambda<number, void>>();
 const event$ = eve<number>();

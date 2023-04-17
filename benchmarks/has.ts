@@ -1,6 +1,6 @@
-import { clr, has, Lambda, sub, Subscriber } from "../src";
-import { eve } from "../src/sync";
-import { syncSuite } from "./utils";
+import { clr, has, Lambda, sub, Subscriber } from "../src/index.js";
+import { eve } from "../src/sync.js";
+import { syncSuite } from "./utils/index.js";
 
 const set = new Set<Subscriber<number, false>>();
 const event$ = eve<number>();
