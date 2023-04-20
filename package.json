@@ -1,7 +1,7 @@
 {
   "name": "ueve",
   "type": "module",
-  "version": "1.4.0",
+  "version": "1.69.0",
   "license": "MIT",
   "author": "Miroslav Vršecký <yamiteru@icloud.com>",
   "description": "🔥 Hellishly fast and 🤏 tiny async/sync event emitter",
