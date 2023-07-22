@@ -9,19 +9,34 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default":"./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default":"./dist/index.cjs"
+      }
     },
     "./sync": {
-      "types": "./dist/sync.d.ts",
-      "import": "./dist/sync.mjs",
-      "require": "./dist/sync.cjs"
+      "import": {
+        "types": "./dist/sync.d.ts",
+        "default":"./dist/sync.mjs"
+      },
+      "require": {
+        "types": "./dist/sync.d.ts",
+        "default":"./dist/sync.cjs"
+      }
     },
     "./async": {
-      "types": "./dist/async.d.ts",
-      "import": "./dist/async.mjs",
-      "require": "./dist/async.cjs"
+      "import": {
+        "types": "./dist/async.d.ts",
+        "default":"./dist/async.mjs"
+      },
+      "require": {
+        "types": "./dist/async.d.ts",
+        "default":"./dist/async.cjs"
+      }
     }
   },
   "files": [
